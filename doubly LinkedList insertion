@@ -1,0 +1,56 @@
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+
+public class DoublyLinkedList {
+    Node head;
+    Node tail;
+    
+//Insertion at end
+    public void addAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+//traverse
+    public void displayList() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        Node current = head;
+        System.out.println("Doubly Linked List:");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedList list = new DoublyLinkedList();
+        list.addAtEnd(10);
+        list.addAtEnd(20);
+        list.addAtEnd(30);
+        list.addAtEnd(40);
+        list.displayList();
+    }
+
+    void insertBefore(Node head, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
